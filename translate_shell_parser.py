@@ -24,8 +24,7 @@ class TranslateShellParser:
         except ValueError:
             raise StopIteration
 
-        result = subprocess.Popen(args, stdout=subprocess.PIPE). \
-            communicate()[0]
+        result = subprocess.check_output(args, encoding='utf-8')
 
         lines = result.split('\n')
 
